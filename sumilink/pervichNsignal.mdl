@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3"
+    ComputedModelVersion    "1.4"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -43,7 +43,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1358.0, -394.0, 1296.0, 1040.0]
+      Location		      [-8.0, -8.0, 1382.0, 754.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -67,9 +67,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1246.0, 865.0]
-	ZoomFactor		[1.0]
-	Offset			[598.84404970746232, 32.062630301949007]
+	Extents			[1332.0, 579.0]
+	ZoomFactor		[1.75]
+	Offset			[863.19146216768956, 191.41093814920842]
       }
     }
   }
@@ -79,9 +79,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "blackjets"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jan 21 17:51:08 2018"
-  RTWModifiedTimeStamp	  434829631
-  ModelVersionFormat	  "1.%<AutoIncrement:3>"
+  LastModifiedDate	  "Fri Feb 02 21:48:51 2018"
+  RTWModifiedTimeStamp	  439508879
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -132,7 +132,7 @@ Model {
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "pervichNsignal"
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -861,12 +861,82 @@ Model {
       VectorParams1D	      on
     }
     Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      WrapState		      off
+      WrappedStateUpperValue  "pi"
+      WrappedStateLowerValue  "-pi"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
       BlockType		      Mux
       Inputs		      "4"
       DisplayOption	      "none"
       UseBusObject	      off
       BusObject		      "BusObject"
       NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
     }
     Block {
       BlockType		      Product
@@ -903,6 +973,38 @@ Model {
       VectorParams1D	      on
     }
     Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      FunctionInterfaceSpec   "void_void"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Opaque		      off
+      MaskHideContents	      off
+      SFBlockType	      "NONE"
+      GeneratePreprocessorConditionals off
+      TreatAsGroupedWhenPropagatingVariantConditions on
+      ContentPreviewEnabled   off
+      IsWebBlock	      off
+    }
+    Block {
       BlockType		      Sum
       IconShape		      "rectangular"
       Inputs		      "++"
@@ -929,7 +1031,7 @@ Model {
   }
   System {
     Name		    "pervichNsignal"
-    Location		    [1358, -394, 2654, 646]
+    Location		    [-8, -8, 1374, 746]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -941,190 +1043,15 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "175"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "34"
-    Block {
-      BlockType		      Abs
-      Name		      "Abs"
-      SID		      "16"
-      Position		      [1085, 520, 1115, 550]
-      ZOrder		      17
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Abs
-      Name		      "Abs1"
-      SID		      "17"
-      Position		      [1095, 645, 1125, 675]
-      ZOrder		      19
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant"
-      SID		      "31"
-      Position		      [685, 435, 715, 465]
-      ZOrder		      32
-      Value		      "+100"
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux"
-      SID		      "9"
-      Ports		      [4, 1]
-      Position		      [1110, 376, 1115, 414]
-      ZOrder		      10
-      ShowName		      off
-      DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux1"
-      SID		      "15"
-      Ports		      [3, 1]
-      Position		      [1325, 526, 1330, 564]
-      ZOrder		      16
-      ShowName		      off
-      Inputs		      "3"
-      DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux3"
-      SID		      "33"
-      Ports		      [4, 1]
-      Position		      [1605, 471, 1610, 509]
-      ZOrder		      34
-      ShowName		      off
-      DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      Product
-      Name		      "Product"
-      SID		      "3"
-      Ports		      [2, 1]
-      Position		      [905, 227, 935, 258]
-      ZOrder		      6
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Product
-      Name		      "Product1"
-      SID		      "6"
-      Ports		      [2, 1]
-      Position		      [915, 497, 945, 528]
-      ZOrder		      9
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      DiscretePulseGenerator
-      Name		      "Pulse\nGenerator"
-      SID		      "29"
-      Ports		      [0, 1]
-      Position		      [685, 359, 715, 391]
-      ZOrder		      30
-      PulseType		      "Time based"
-      Amplitude		      "200"
-      Period		      "2*pi/10000"
-      PhaseDelay	      "((2*pi/10000)/360)*90"
-    }
+    SIDHighWatermark	    "47"
     Block {
       BlockType		      Scope
-      Name		      "Scope1"
-      SID		      "11"
-      Ports		      [1]
-      Position		      [1270, 373, 1300, 407]
-      ZOrder		      12
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingLimitDataPoints',true,'DataLoggi"
-      "ngSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals'"
-      ",'Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','MinYL"
-      "imMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
-      ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666"
-      "66667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725490"
-      "19608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650"
-      "980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
-      "ineNames',{{[]}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-150','MaxYL"
-      "imReal','150','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',t"
-      "rue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
-      "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313"
-      "72549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941"
-      "17647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefin"
-      "edChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('To"
-      "ols','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2016"
-      "a')),'Version','2016a','Location',[1 48 1921 1049])"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope2"
-      SID		      "13"
-      Ports		      [1]
-      Position		      [1360, 528, 1390, 562]
-      ZOrder		      14
-      ScopeSpecificationString "C++SS(StrPVP('Location','[1, 48, 1921, 1049]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
-      ",24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'','"
-      "'AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',"
-      "''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|no"
-      "ne|none|none'')'),StrPVP('YMin','-125'),StrPVP('YMax','150'),StrPVP('SaveName','ScopeData2'),StrPVP('LimitDataPo"
-      "ints','on'),StrPVP('DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope3"
-      SID		      "20"
-      Ports		      [2]
-      Position		      [1380, 431, 1410, 464]
-      ZOrder		      21
-      ScopeSpecificationString "C++SS(StrPVP('Location','[1, 48, 1921, 1049]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
-      ",24,'struct(''axes1'',''%<SignalLabel>'',''axes2'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''Figu"
-      "reColor'',''[0.5 0.5 0.5]'',''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 "
-      "1;0 1 1;1 0 0;0 1 0;0 0 1]'',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''Marke"
-      "rStyles'',''none|none|none|none|none|none'')'),StrPVP('YMin','-110~-200'),StrPVP('YMax','110~200'),StrPVP('SaveN"
-      "ame','ScopeData3'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('"
-      "BlockParamSampleInput','off'))"
-      NumInputPorts	      "2"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope6"
-      SID		      "28"
-      Ports		      [1]
-      Position		      [1395, 373, 1425, 407]
-      ZOrder		      29
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData5','DataLoggingLimitDataPoints',true,'DataLoggi"
-      "ngSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals'"
-      ",'Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','MinYL"
-      "imMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
-      ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666"
-      "66667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725490"
-      "19608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650"
-      "980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
-      "ineNames',{{[]}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-150','MaxYL"
-      "imReal','150','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',t"
-      "rue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
-      "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313"
-      "72549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941"
-      "17647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefin"
-      "edChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('To"
-      "ols','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2016"
-      "a')),'Version','2016a','Location',[969 56 1913 1041])"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope7"
+      Name		      "Coord"
       SID		      "34"
       Ports		      [1]
-      Position		      [1665, 473, 1695, 507]
+      Position		      [1505, 423, 1535, 457]
       ZOrder		      35
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1147,60 +1074,719 @@ Model {
       "a')),'Version','2016a','Location',[616 -110 2536 891])"
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave"
-      SID		      "1"
-      Ports		      [0, 1]
-      Position		      [790, 185, 820, 215]
-      ZOrder		      1
-      Amplitude		      "10"
-      Frequency		      "10000"
-      SampleTime	      "0"
+      BlockType		      SubSystem
+      Name		      "Datchik"
+      SID		      "44"
+      Ports		      [1, 1]
+      Position		      [1025, 419, 1125, 461]
+      ZOrder		      42
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"Datchik"
+	Location		[433, 403, 931, 703]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  SID			  "45"
+	  Position		  [110, 103, 140, 117]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "46"
+	  Position		  [360, 103, 390, 117]
+	  ZOrder		  -2
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave1"
-      SID		      "2"
-      Ports		      [0, 1]
-      Position		      [790, 275, 820, 305]
-      ZOrder		      2
-      Amplitude		      "2"
-      Bias		      "10"
-      Frequency		      "1000"
-      SampleTime	      "0"
+      BlockType		      Reference
+      Name		      "Digital\nFilter Design"
+      SID		      "40"
+      Ports		      [1, 1]
+      Position		      [1265, 412, 1330, 468]
+      ZOrder		      39
+      LibraryVersion	      "1.345"
+      UserDataPersistent      on
+      UserData		      "DataTag0"
+      SourceBlock	      "dsparch4/Digital\nFilter Design"
+      SourceType	      "Digital Filter Design"
+      ContentPreviewEnabled   off
+      mwdsp_browser_bugfix_var off
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave2"
-      SID		      "7"
-      Ports		      [0, 1]
-      Position		      [800, 455, 830, 485]
-      ZOrder		      7
-      Amplitude		      "10"
-      Frequency		      "10000"
-      Phase		      "pi/180*10"
-      SampleTime	      "0"
+      BlockType		      Gain
+      Name		      "Gain"
+      SID		      "39"
+      Position		      [1195, 425, 1225, 455]
+      ZOrder		      38
+      Gain		      "K"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave3"
-      SID		      "8"
-      Ports		      [0, 1]
-      Position		      [800, 545, 830, 575]
-      ZOrder		      8
-      Amplitude		      "2"
-      Bias		      "10"
-      Frequency		      "1000"
-      Phase		      "2*pi/2"
-      SampleTime	      "0"
+      BlockType		      Integrator
+      Name		      "Integrator"
+      SID		      "41"
+      Ports		      [1, 1]
+      Position		      [1390, 425, 1420, 455]
+      ZOrder		      40
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "PervichSignal"
+      SID		      "35"
+      Ports		      [1, 1]
+      Position		      [965, 410, 1005, 470]
+      ZOrder		      -26
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"PervichSignal"
+	Location		[100, 100, 600, 900]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  SID			  "36"
+	  Position		  [680, 218, 710, 232]
+	  ZOrder		  35
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Abs
+	  Name			  "Abs"
+	  SID			  "16"
+	  Position		  [420, 355, 450, 385]
+	  ZOrder		  17
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Abs
+	  Name			  "Abs1"
+	  SID			  "17"
+	  Position		  [430, 480, 460, 510]
+	  ZOrder		  19
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "31"
+	  Position		  [20, 270, 50, 300]
+	  ZOrder		  32
+	  Value			  "+100"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux"
+	  SID			  "9"
+	  Ports			  [4, 1]
+	  Position		  [445, 211, 450, 249]
+	  ZOrder		  10
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux1"
+	  SID			  "15"
+	  Ports			  [3, 1]
+	  Position		  [660, 361, 665, 399]
+	  ZOrder		  16
+	  ShowName		  off
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux3"
+	  SID			  "33"
+	  Ports			  [4, 1]
+	  Position		  [940, 306, 945, 344]
+	  ZOrder		  34
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  SID			  "3"
+	  Ports			  [2, 1]
+	  Position		  [240, 62, 270, 93]
+	  ZOrder		  6
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  SID			  "6"
+	  Ports			  [2, 1]
+	  Position		  [250, 332, 280, 363]
+	  ZOrder		  9
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DiscretePulseGenerator
+	  Name			  "Pulse\nGenerator"
+	  SID			  "29"
+	  Ports			  [0, 1]
+	  Position		  [20, 194, 50, 226]
+	  ZOrder		  30
+	  PulseType		  "Time based"
+	  Amplitude		  "200"
+	  Period		  "2*pi/10000"
+	  PhaseDelay		  "((2*pi/10000)/360)*90"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope1"
+	  SID			  "11"
+	  Ports			  [1]
+	  Position		  [605, 208, 635, 242]
+	  ZOrder		  12
+	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
+	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
+	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingLimitDataPoints',true,'DataLoggingSaveFor"
+	  "mat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domai"
+	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','MinYLimMag','0','Max"
+	  "YLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTick"
+	  "Color',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215"
+	  "686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686"
+	  ";0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Si"
+	  "gnalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent'"
+	  ",true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','Mi"
+	  "nYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
+	  ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666666"
+	  "67;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 "
+	  "0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156"
+	  "863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{"
+	  "[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),ext"
+	  "mgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[1 48 1921 1049])"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope2"
+	  SID			  "13"
+	  Ports			  [1]
+	  Position		  [695, 363, 725, 397]
+	  ZOrder		  14
+	  ScopeSpecificationString "C++SS(StrPVP('Location','[1, 48, 1921, 1049]'),StrPVP('Open','off'),MxPVP('AxesTitles',24"
+	  ",'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'',''AxesC"
+	  "olor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',''LineSty"
+	  "les'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|none|none|none"
+	  "'')'),StrPVP('YMin','-125'),StrPVP('YMax','150'),StrPVP('SaveName','ScopeData2'),StrPVP('LimitDataPoints','on'),Str"
+	  "PVP('DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope3"
+	  SID			  "20"
+	  Ports			  [2]
+	  Position		  [715, 266, 745, 299]
+	  ZOrder		  21
+	  ScopeSpecificationString "C++SS(StrPVP('Location','[1, 48, 1921, 1049]'),StrPVP('Open','off'),MxPVP('AxesTitles',24"
+	  ",'struct(''axes1'',''%<SignalLabel>'',''axes2'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColo"
+	  "r'',''[0.5 0.5 0.5]'',''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1"
+	  " 0 0;0 1 0;0 0 1]'',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''"
+	  "none|none|none|none|none|none'')'),StrPVP('YMin','-110~-200'),StrPVP('YMax','110~200'),StrPVP('SaveName','ScopeData"
+	  "3'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleIn"
+	  "put','off'))"
+	  NumInputPorts		  "2"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope6"
+	  SID			  "28"
+	  Ports			  [1]
+	  Position		  [730, 208, 760, 242]
+	  ZOrder		  29
+	  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr."
+	  "Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources"
+	  "','WiredSimulink',true,'DataLoggingVariableName','ScopeData5','DataLoggingLimitDataPoints',true,'DataLoggingSaveFor"
+	  "mat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domai"
+	  "n',true,'SerializedDisplays',{struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','MinYLimMag','0','Max"
+	  "YLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTick"
+	  "Color',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215"
+	  "686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686"
+	  ";0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Si"
+	  "gnalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent'"
+	  ",true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-150','MaxYLimReal','150','YLabelReal','','Mi"
+	  "nYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
+	  ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666666"
+	  "67;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 "
+	  "0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156"
+	  "863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{"
+	  "[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),ext"
+	  "mgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[969 56 1913 1041])"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave"
+	  SID			  "1"
+	  Ports			  [0, 1]
+	  Position		  [125, 20, 155, 50]
+	  ZOrder		  1
+	  Amplitude		  "10"
+	  Frequency		  "10000"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave1"
+	  SID			  "2"
+	  Ports			  [0, 1]
+	  Position		  [125, 110, 155, 140]
+	  ZOrder		  2
+	  Amplitude		  "2"
+	  Bias			  "10"
+	  Frequency		  "1000"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave2"
+	  SID			  "7"
+	  Ports			  [0, 1]
+	  Position		  [135, 290, 165, 320]
+	  ZOrder		  7
+	  Amplitude		  "10"
+	  Frequency		  "10000"
+	  Phase			  "pi/180*10"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave3"
+	  SID			  "8"
+	  Ports			  [0, 1]
+	  Position		  [135, 380, 165, 410]
+	  ZOrder		  8
+	  Amplitude		  "2"
+	  Bias			  "10"
+	  Frequency		  "1000"
+	  Phase			  "2*pi/2"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "10"
+	  Ports			  [2, 1]
+	  Position		  [465, 85, 485, 105]
+	  ZOrder		  11
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "19"
+	  Ports			  [2, 1]
+	  Position		  [615, 360, 635, 380]
+	  ZOrder		  20
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "30"
+	  Ports			  [2, 1]
+	  Position		  [115, 225, 135, 245]
+	  ZOrder		  31
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum5"
+	  SID			  "32"
+	  Ports			  [2, 1]
+	  Position		  [880, 355, 900, 375]
+	  ZOrder		  33
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  TransferFcn
+	  Name			  "Transfer Fcn"
+	  SID			  "14"
+	  Position		  [465, 352, 575, 388]
+	  ZOrder		  15
+	  Denominator		  "[0.00548 1]"
+	}
+	Block {
+	  BlockType		  TransferFcn
+	  Name			  "Transfer Fcn1"
+	  SID			  "18"
+	  Position		  [475, 477, 585, 513]
+	  ZOrder		  18
+	  Denominator		  "[0.00548 1]"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "37"
+	  Position		  [1015, 318, 1045, 332]
+	  ZOrder		  36
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Sine Wave"
+	  SrcPort		  1
+	  Points		  [43, 0; 0, 35]
+	  DstBlock		  "Product"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sine Wave3"
+	  SrcPort		  1
+	  Points		  [38, 0; 0, -40]
+	  DstBlock		  "Product1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  19
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  Points		  [60, 0; 0, 15]
+	  Branch {
+	    ZOrder		    65
+	    Points		    [0, 135]
+	    Branch {
+	      ZOrder		      37
+	      Points		      [0, 140]
+	      DstBlock		      "Abs"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      33
+	      Points		      [26, 0]
+	      Branch {
+		ZOrder			105
+		Points			[0, 94; 564, 0]
+		DstBlock		"Mux3"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			104
+		Points			[54, 0; 0, -15]
+		DstBlock		"Mux"
+		DstPort			1
+	      }
+	    }
+	  }
+	  Branch {
+	    ZOrder		    22
+	    DstBlock		    "Sum"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Sine Wave1"
+	  SrcPort		  1
+	  Points		  [38, 0; 0, -40]
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sine Wave2"
+	  SrcPort		  1
+	  Points		  [43, 0; 0, 35]
+	  DstBlock		  "Product1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  26
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  Points		  [57, 0]
+	  Branch {
+	    ZOrder		    118
+	    Points		    [78, 0]
+	    DstBlock		    "Scope1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    64
+	    Points		    [0, 45]
+	    DstBlock		    "Scope3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  27
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [9, 0; 0, 178; -24, 0]
+	  Branch {
+	    ZOrder		    109
+	    Points		    [0, 57; 357, 0]
+	    Branch {
+	      ZOrder		      113
+	      Points		      [0, 64; 58, 0]
+	      DstBlock		      "Sum5"
+	      DstPort		      2
+	    }
+	    Branch {
+	      ZOrder		      112
+	      DstBlock		      "Mux3"
+	      DstPort		      3
+	    }
+	  }
+	  Branch {
+	    ZOrder		    108
+	    Points		    [-45, 0]
+	    DstBlock		    "Mux"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  ZOrder		  40
+	  SrcBlock		  "Mux1"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    ZOrder		    62
+	    Points		    [0, -90]
+	    DstBlock		    "Scope3"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    61
+	    DstBlock		    "Scope2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  45
+	  SrcBlock		  "Abs"
+	  SrcPort		  1
+	  DstBlock		  "Transfer Fcn"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  49
+	  SrcBlock		  "Abs1"
+	  SrcPort		  1
+	  DstBlock		  "Transfer Fcn1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  20
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  Points		  [38, 0]
+	  Branch {
+	    ZOrder		    51
+	    Points		    [0, 145]
+	    DstBlock		    "Abs1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    50
+	    Points		    [45, 0; 0, -100; 7, 0; 0, -25]
+	    Branch {
+	      ZOrder		      25
+	      Points		      [0, -105]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Branch {
+	      ZOrder		      24
+	      Points		      [18, 0]
+	      Branch {
+		ZOrder			151
+		Points			[0, -12; 532, 0]
+		DstBlock		"Mux3"
+		DstPort			2
+	      }
+	      Branch {
+		ZOrder			106
+		DstBlock		"Mux"
+		DstPort			2
+	      }
+	    }
+	  }
+	}
+	Line {
+	  ZOrder		  182
+	  SrcBlock		  "Mux3"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  58
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  Points		  [0, 10]
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  99
+	  SrcBlock		  "Pulse\nGenerator"
+	  SrcPort		  1
+	  Points		  [27, 0]
+	  Branch {
+	    ZOrder		    111
+	    Points		    [0, -7; 726, 0; 0, 162]
+	    DstBlock		    "Sum5"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    110
+	    Points		    [11, 0; 0, 25]
+	    DstBlock		    "Sum4"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  115
+	  SrcBlock		  "Sum5"
+	  SrcPort		  1
+	  Points		  [9, 0; 0, -25]
+	  DstBlock		  "Mux3"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  57
+	  SrcBlock		  "Transfer Fcn1"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -100; 5, 0]
+	  Branch {
+	    ZOrder		    155
+	    Points		    [17, 0; 0, -5]
+	    DstBlock		    "Mux1"
+	    DstPort		    3
+	  }
+	  Branch {
+	    ZOrder		    59
+	    DstBlock		    "Sum1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  103
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, 10]
+	  DstBlock		  "Mux"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  102
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [70, 0]
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  39
+	  SrcBlock		  "Transfer Fcn"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    ZOrder		    154
+	    Points		    [3, 0; 0, -17; 42, 0]
+	    DstBlock		    "Mux1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    56
+	    DstBlock		    "Sum1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  181
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Scope6"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Speed"
+      SID		      "42"
+      Ports		      [1]
+      Position		      [1505, 368, 1535, 402]
+      ZOrder		      41
+      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'))"
     }
     Block {
       BlockType		      Sum
       Name		      "Sum"
-      SID		      "10"
+      SID		      "38"
       Ports		      [2, 1]
-      Position		      [1130, 250, 1150, 270]
-      ZOrder		      11
+      Position		      [1150, 430, 1170, 450]
+      ZOrder		      37
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
@@ -1208,336 +1794,223 @@ Model {
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
     }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum1"
-      SID		      "19"
-      Ports		      [2, 1]
-      Position		      [1280, 525, 1300, 545]
-      ZOrder		      20
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum4"
-      SID		      "30"
-      Ports		      [2, 1]
-      Position		      [780, 390, 800, 410]
-      ZOrder		      31
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|++"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum5"
-      SID		      "32"
-      Ports		      [2, 1]
-      Position		      [1545, 520, 1565, 540]
-      ZOrder		      33
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|++"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn"
-      SID		      "14"
-      Position		      [1130, 517, 1240, 553]
-      ZOrder		      15
-      Denominator	      "[0.00548 1]"
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn1"
-      SID		      "18"
-      Position		      [1140, 642, 1250, 678]
-      ZOrder		      18
-      Denominator	      "[0.00548 1]"
-    }
     Line {
-      ZOrder		      4
-      SrcBlock		      "Sine Wave"
-      SrcPort		      1
-      Points		      [43, 0; 0, 35]
-      DstBlock		      "Product"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      10
-      SrcBlock		      "Sine Wave1"
-      SrcPort		      1
-      Points		      [38, 0; 0, -40]
-      DstBlock		      "Product"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      14
-      SrcBlock		      "Sine Wave2"
-      SrcPort		      1
-      Points		      [43, 0; 0, 35]
-      DstBlock		      "Product1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      15
-      SrcBlock		      "Sine Wave3"
-      SrcPort		      1
-      Points		      [38, 0; 0, -40]
-      DstBlock		      "Product1"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      19
-      SrcBlock		      "Product"
-      SrcPort		      1
-      Points		      [60, 0; 0, 15]
-      Branch {
-	ZOrder			65
-	Points			[0, 135]
-	Branch {
-	  ZOrder		  37
-	  Points		  [0, 140]
-	  DstBlock		  "Abs"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  33
-	  Points		  [26, 0]
-	  Branch {
-	    ZOrder		    105
-	    Points		    [0, 94; 564, 0]
-	    DstBlock		    "Mux3"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    104
-	    Points		    [54, 0; 0, -15]
-	    DstBlock		    "Mux"
-	    DstPort		    1
-	  }
-	}
-      }
-      Branch {
-	ZOrder			22
-	DstBlock		"Sum"
-	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      26
-      SrcBlock		      "Mux"
-      SrcPort		      1
-      Points		      [57, 0]
-      Branch {
-	ZOrder			118
-	Points			[78, 0]
-	DstBlock		"Scope1"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			64
-	Points			[0, 45]
-	DstBlock		"Scope3"
-	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      27
+      ZOrder		      194
       SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [9, 0; 0, 178; -24, 0]
-      Branch {
-	ZOrder			109
-	Points			[0, 57; 357, 0]
-	Branch {
-	  ZOrder		  113
-	  Points		  [0, 64; 58, 0]
-	  DstBlock		  "Sum5"
-	  DstPort		  2
-	}
-	Branch {
-	  ZOrder		  112
-	  DstBlock		  "Mux3"
-	  DstPort		  3
-	}
-      }
-      Branch {
-	ZOrder			108
-	Points			[-45, 0]
-	DstBlock		"Mux"
-	DstPort			3
-      }
+      DstBlock		      "Gain"
+      DstPort		      1
     }
     Line {
-      ZOrder		      39
-      SrcBlock		      "Transfer Fcn"
+      ZOrder		      184
+      SrcBlock		      "Gain"
+      SrcPort		      1
+      DstBlock		      "Digital\nFilter Design"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      185
+      SrcBlock		      "Digital\nFilter Design"
       SrcPort		      1
       Points		      [20, 0]
       Branch {
-	ZOrder			154
-	Points			[3, 0; 0, -17; 42, 0]
-	DstBlock		"Mux1"
+	ZOrder			188
+	Points			[0, -55]
+	DstBlock		"Speed"
 	DstPort			1
       }
       Branch {
-	ZOrder			56
-	DstBlock		"Sum1"
+	ZOrder			187
+	DstBlock		"Integrator"
 	DstPort			1
       }
     }
     Line {
-      ZOrder		      40
-      SrcBlock		      "Mux1"
+      ZOrder		      186
+      SrcBlock		      "Integrator"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [32, 0]
       Branch {
-	ZOrder			62
-	Points			[0, -90]
-	DstBlock		"Scope3"
+	ZOrder			190
+	Points			[0, 68; -297, 0]
+	DstBlock		"Sum"
 	DstPort			2
       }
       Branch {
-	ZOrder			61
-	DstBlock		"Scope2"
+	ZOrder			189
+	DstBlock		"Coord"
 	DstPort			1
       }
     }
     Line {
-      ZOrder		      45
-      SrcBlock		      "Abs"
+      ZOrder		      191
+      SrcBlock		      "PervichSignal"
       SrcPort		      1
-      DstBlock		      "Transfer Fcn"
+      DstBlock		      "Datchik"
       DstPort		      1
     }
     Line {
-      ZOrder		      20
-      SrcBlock		      "Product1"
+      ZOrder		      192
+      SrcBlock		      "Datchik"
       SrcPort		      1
-      Points		      [38, 0]
-      Branch {
-	ZOrder			51
-	Points			[0, 145]
-	DstBlock		"Abs1"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			50
-	Points			[45, 0; 0, -100; 7, 0; 0, -25]
-	Branch {
-	  ZOrder		  25
-	  Points		  [0, -105]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Branch {
-	  ZOrder		  24
-	  Points		  [10, 0]
-	  Branch {
-	    ZOrder		    151
-	    Points		    [0, 11; 8, 0; 0, 84]
-	    DstBlock		    "Mux3"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    106
-	    DstBlock		    "Mux"
-	    DstPort		    2
-	  }
-	}
-      }
-    }
-    Line {
-      ZOrder		      57
-      SrcBlock		      "Transfer Fcn1"
-      SrcPort		      1
-      Points		      [30, 0; 0, -100; 5, 0]
-      Branch {
-	ZOrder			155
-	Points			[17, 0; 0, -5]
-	DstBlock		"Mux1"
-	DstPort			3
-      }
-      Branch {
-	ZOrder			59
-	DstBlock		"Sum1"
-	DstPort			2
-      }
-    }
-    Line {
-      ZOrder		      49
-      SrcBlock		      "Abs1"
-      SrcPort		      1
-      DstBlock		      "Transfer Fcn1"
+      DstBlock		      "Sum"
       DstPort		      1
     }
-    Line {
-      ZOrder		      58
-      SrcBlock		      "Sum1"
-      SrcPort		      1
-      Points		      [0, 10]
-      DstBlock		      "Mux1"
-      DstPort		      2
+    Annotation {
+      SID		      "47"
+      Name		      "Error Vichislitel"
+      Position		      [1144, 270, 1217, 285]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      on
+      FixedWidth	      on
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
     }
-    Line {
-      ZOrder		      99
-      SrcBlock		      "Pulse\nGenerator"
-      SrcPort		      1
-      Points		      [27, 0]
-      Branch {
-	ZOrder			111
-	Points			[0, -7; 726, 0; 0, 162]
-	DstBlock		"Sum5"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			110
-	Points			[11, 0; 0, 25]
-	DstBlock		"Sum4"
-	DstPort			1
-      }
+    Annotation {
+      SID		      "43"
+      Name		      "dPhi/R"
+      Position		      [1191, 308, 1230, 328]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      on
+      FixedWidth	      on
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
     }
-    Line {
-      ZOrder		      102
-      SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [70, 0]
-      DstBlock		      "Sum4"
-      DstPort		      2
+    Connector {
+      Annotation	      "47"
+      Target		      "Block:38"
+      MarkupType	      "model"
+      StrokeWidth	      2
+      Color		      "[0.000000, 0.000000, 0.700000]"
     }
-    Line {
-      ZOrder		      103
-      SrcBlock		      "Sum4"
-      SrcPort		      1
-      Points		      [95, 0; 0, 10]
-      DstBlock		      "Mux"
-      DstPort		      4
+    Connector {
+      Annotation	      "43"
+      Target		      "Block:39"
+      MarkupType	      "model"
+      StrokeWidth	      2
+      Color		      "[0.000000, 0.000000, 0.700000]"
     }
-    Line {
-      ZOrder		      115
-      SrcBlock		      "Sum5"
-      SrcPort		      1
-      Points		      [9, 0; 0, -25]
-      DstBlock		      "Mux3"
-      DstPort		      4
-    }
-    Line {
-      ZOrder		      116
-      SrcBlock		      "Mux3"
-      SrcPort		      1
-      DstBlock		      "Scope7"
-      DstPort		      1
-    }
+  }
+}
+MatData {
+  NumRecords		  1
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    2\"4   8    (     @         %    \"     $    !     0         %  0 #0    $   !U    <VED9"
+    "6)A<@       &9V=&]O;         !C=7)R96YT7V9I;'0 9FEL=&5R36%D94)Y &-U<G)E;G1&<P    !C=7)R96YT3F%M90  =F5R<VEO;@     "
+    "  &UC;V1E          !H1FEG                #@   \" -   &    \"     (         !0    @    !     0    $         !0 $  T"
+    "    !    &@   &-U<G)E;G1P86YE; !D97-I9VX                 #@   #@    &    \"     0         !0    @    !    !@    $ "
+    "        $     8   !D97-I9VX   X   \" #   !@    @    \"          4    (     0    $    !          4 !  3     0   -$ "
+    "  !486<                     5F5R<VEO;@               &ES1&5S:6=N960           !297-P;VYS951Y<&4         4W5B5'EP90"
+    "               $1E<VEG;DUE=&AO9         !#=7)R96YT1G,             4F5S<&]N<V54>7!E0U-(5&%G %-T871I8U)E<W!O;G-E    "
+    "  !);G!U=%!R;V-E<W-I;F<     0V]M<&]N96YT<P                     .    2     8    (    !          %    \"     $    2 "
+    "    0         0    $@   '-I9V=U:2YD97-I9VYP86YE;         X    X    !@    @    &          4    (     0    $    !   "
+    "       D    (            \\#\\.    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P"
+    "    !@    @    $          4    (     0    (    !         !   @!L<   #@   #     &    \"     0         !0    @    ! "
+    "    @    $         $  \" &QP   .    0     8    (    !          %    \"     $    -     0         0    #0   &9I;'1D9"
+    "7,N<F5M97H    .    P     8    (     @         %    \"     $    !     0         %  0 !@    $    ,    =F%L=64 =6YI='"
+    ",       X    X    !@    @    &          4    (     0    $    !          D    (          !PYT .    ,     8    (    "
+    "!          %    \"     $    \"     0         0  ( 2'H   X   !8    !@    @    $          4    (     0   \"8    !   "
+    "      !     F    9F1A=&]O;%]F:6QT97)?='EP95]F<F%M92]F:6QT97)D97-I9VX   X    P    !@    @    $          4    (     "
+    "0    ,    !         !   P!O9F8 #@   %@    &    \"     0         !0    @    !    (0    $         $    \"$   !#;VQU;"
+    "6YS(&%S(&-H86YN96QS(\"AF<F%M92!B87-E9\"D         #@   \"@(   &    \"     $         !0    @    !    !     $        "
+    " #@   *@!   &    \"     (         !0    @    !     0    $         !0 $  D    !    +0   %1A9P       %9E<G-I;VX  &ES"
+    "36EN3W)D &]R9&5R     &UO9&4           X   !(    !@    @    $          4    (     0   !(    !         !     2    <V"
+    "EG9W5I+F9I;'1E<F]R9&5R        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           "
+    "#P/PX    P    !@    @    ) @        4    (     0    $    !          (  0 !    #@   #     &    \"     0         !0 "
+    "   @    !     @    $         $  \" #$P   .    .     8    (    !          %    \"     $    '     0         0    !P "
+    "  &UI;FEM=6T #@   # !   &    \"     (         !0    @    !     0    $         !0 $  X    !    *@   %1A9P          "
+    "    5F5R<VEO;@        !$96YS:71Y1F%C=&]R          X   !(    !@    @    $          4    (     0   !@    !         !"
+    "     8    <VEG9W5I+G)E;65Z;W!T:6]N<V9R86UE#@   #@    &    \"     8         !0    @    !     0    $         \"0    "
+    "@           #P/PX    P    !@    @    $          4    (     0    (    !         !   @ Q-@  #@   ! \"   &    \"     "
+    "(         !0    @    !     0    $         !0 $  H    !    /    %1A9P        !697)S:6]N    9G)E<55N:71S $9S        "
+    "  !&<&%S<P      1G-T;W             .    4     8    (    !          %    \"     $    =     0         0    '0   &9D8"
+    "61E<VEG;G!A;F5L+FQP9G)E<7!A<W-S=&]P    #@   #@    &    \"     8         !0    @    !     0    $         \"0    @  "
+    "         #P/PX   !(    !@    @    $          4    (     0   !,    !         !     3    3F]R;6%L:7IE9\" H,\"!T;R Q*"
+    "0      #@   #@    &    \"     0         !0    @    !    !0    $         $     4    T.# P,     X    P    !@    @   "
+    " $          4    (     0    (    !         !   @ N-   #@   #     &    \"     0         !0    @    !     @    $    "
+    "     $  \" \"XU   .    ^ (   8    (     @         %    \"     $    !     0         %  0 \"0    $   !:    5&%G     "
+    "   5F5R<VEO;@  25)4>7!E    ;6%G56YI=', 07!A<W,     07-T;W      1'!A<W,     1'-T;W      17!A<W,     17-T;W         "
+    "     #@   $@    &    \"     0         !0    @    !    %     $         $    !0   !F9&%D97-I9VYP86YE;\"YL<&UA9P     "
+    ".    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   #     &    \"     0   "
+    "      !0    @    !     P    $         $  # $9)4@ .    ,     8    (    !          %    \"     $    \"     0        "
+    " 0  ( 9$(   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &    \"     0    "
+    "     !0    @    !     @    $         $  \" #@P   .    ,     8    (    !          %    \"     $    #     0         "
+    "0  , ,\"XQ  X    X    !@    @    $          4    (     0    4    !         !     %    ,\"XP,#$    .    ,     8    "
+    "(    !          %    \"     $    #     0         0  , ,\"XQ  X    X    !@    @    $          4    (     0    4    "
+    "!         !     %    ,\"XP,#$    .    X     8    (     @         %    \"     $    !     0         %  0 $@    $    "
+    "D    8W5R<F5N=$%N86QY<VES    3W9E<FQA>65D06YA;'ES:7,       X   !     !@    @    $          4    (     0    D    ! "
+    "        !     )    ;6%G;FET=61E          X    P    !@    @    $          4    (               !         !         "
+    " #@   (@,   &    \"    !$          0         !    !@   &AA;F1L90   0    L   !D9FEL=\"YD9F9I<@      #@   $ ,   &   "
+    " \"     $         !0    @    $     0    $         #@   $ !   &    \"     D         !0    @    0 0   0    $        "
+    "  @   ! !   !    !0   &    \"0    J    /     ( 0  $ $             9&9I;'0 9&9F:7( 9FEL=&5R<75A;G1I>F5R &YC;V5F9G, "
+    "34%43$%\"(&%R<F%Y                                 0    (       $       $    #                          $    %     "
+    "0    $                                    !               !               \"                     0                "
+    "    $    $     0                    X   !X    !@    @    !          4    (     0    $    !          X   !(    !@  "
+    "  @    -          4    (    !0    $    !          8    4        W0(    !     0    $         #@   #@    &    \"    "
+    " 8         !0    @    !     0    $         \"0    @          (!)0 X    (\"@  !@    @    \"          4    (     0  "
+    "  $    !          4 !  6     0   *(!  !C;&%S<P                      =F5R<VEO;@                   %!E<G-I<W1E;G1-96"
+    "UO<GD       !.=6U386UP;&5S4')O8V5S<V5D    4W1A=&5S                     ')E9FYU;0                    !F9&5S:6=N    "
+    "                9FUE=&AO9                    &UE87-U<F5M96YT<P            !P<FEV9G$                     07)I=&AM97"
+    "1I8P               '!R:79D97-I9VYM971H;V0       !D97-I9VYM971H;V0             <')I=FYO<FU'86EN             $9R;VU3"
+    ">7-/8FI&;&%G          !3>7-/8FI087)A;7,             1G)O;49I;'1E<D)U:6QD97)&;&%G %-U<'!O<G1S3DQ-971H;V1S      !&<F"
+    "]M1&5S:6=N9FEL=                   #@   $     &    \"     0         !0    @    !    \"P    $         $     L   !D9F"
+    "EL=\"YD9F9I<@      #@   -     &    \"     (         !0    @    !     0    $         !0 $  P    !    &    &YU;6)E<@"
+    "       &1E<V-R:7!T:6]N  X    X    !@    @    &          4    (     0    $    !          D    (            $$ .    "
+    ".     8    (    !          %    \"     $    &     0         0    !@   %(R,# X8@  #@   #     &    \"     D\"       "
+    " !0    @    !     0    $          @ !       .    .     8    (    !@         %    \"     $    !     0         )    "
+    "\"               #@   , !   &    \"     8         !0    @    R     0    $         \"0   ) !                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                         #@   ,@!   &    \"     8         !0    @    !    ,P    $ "
+    "        \"0   )@!  \"KVJH[Q#=.OQXJ8H=1<6:_9'R%%8'D9+^FWLTI[\"%M/PK]Y5/%OXL_J&0KRSR[D3^-K+I2TY)_/R/[8UUZF'J_C>/:?8E"
+    "U?[]D&K;$1NUX/]VS=64D;(P_R8CO*ZL!.C_LI),M'$>1O[#LQ<I41(*_*']Q-'#4D3^#S6DDL4\"5/PH$K[ !'(F_9*9J2D*'H;\\\\$'[@\"G91O"
+    "P3$X_Q8=J@_WE:=<+@-G#^7\"+&1%V.NOPG*D^90$[6_A3JQ3N,PL3]9D\"ZX;-?3/_-B,!2.AML_69 NN&S7TS^%.K%.XS\"Q/PG*D^90$[6_EPBQ"
+    "D1=CKK_>5IUPN V</P3$X_Q8=J@_/!!^X IV4;]DIFI*0H>AOPH$K[ !'(F_@\\UI)+% E3\\H?W$T<-21/[#LQ<I41(*_[*23+1Q'D;_)B.\\KJP$"
+    "Z/]VS=64D;(P_9!JVQ$;M>#^-X]I]B75_OR/[8UUZF'J_C:RZ4M.2?S^H9\"O+/+N1/PK]Y5/%OXL_IM[-*>PA;3]D?(45@>1DOQXJ8H=1<6:_J]JJ"
+    ".\\0W3K\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    &       "
+    "   4    (               !          D         #@   #     &    \"     8         !0    @               $         \"0 "
+    "        .    2     8    (    #0         %    \"     4    !     0         &    %        -T\"     0    $    \"      "
+    "    X    X    !@    @    $          4    (     0    8    !         !     &    9&]U8FQE   .    ,     8    (    !   "
+    "       %    \"                0         0          X    P    !@    @    $          4    (               !         "
+    "!          #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    \"0( "
+    "       %    \"     $    !     0         \"  $       X    P    !@    @    &          4    (               !        "
+    "  D         #@   #     &    \"     D\"        !0    @    !     0    $          @ !       .    ,     8    (    \"0("
+    "        %    \"     $    !     0         \"  $       X    P    !@    @    ) @        4    (     0    $    !       "
+    "   (  0      #@   #@    &    \"     0         !0    @    !    \"     $         $     @   !$97-I9VYE9 X    P    !@ "
+    "   @    &          4    (               !          D         #@   $@    &    \"     0         !0    @    !    $@  "
+    "  $         $    !(   !,;W=P87-S($5Q=6ER:7!P;&4        .    .     8    (    !@         %    \"     $    !     0   "
+    "      )    \"    )J9F9F9F?$_#@   *@(   &    \"    !$          0         !    !@   &AA;F1L90   0   !8   !S:6=C;V1E9"
+    "V5N+FUC;V1E8G5F9F5R   .    6 @   8    (     0         %    \"     4    !     0         .    ( $   8    (    \"0   "
+    "      %    \"    /     !     0         \"    \\     $    %    8    (    \"(    N    .@   #P              !S:6=C;V1"
+    "E9V5N &UC;V1E8G5F9F5R &)U9F9E<@!P<FEV5W)A< !P<FEV36%X5VED=&@                            !     @                   "
+    "                                      !                     0                    ,    #     0         $     0    $"
+    "    %     0    (               X   !X    !@    @    !          4    (     0    $    !          X   !(    !@    @  "
+    "  -          4    (    !0    $    !          8    4        W0(    !     0    $         #@    @&   &    \"     $   "
+    "      !0    @    !    $     $         #@   '     &    \"     0         !0    @    !    /@    $         $    #X    "
+    "E($5Q=6ER:7!P;&4@3&]W<&%S<R!F:6QT97(@9&5S:6=N960@=7-I;F<@=&AE($9)4E!-(&9U;F-T:6]N+@  #@   #     &    \"     0     "
+    "    !0    @    !          $         $          .    8     8    (    !          %    \"     $    K     0         0 "
+    "   *P   \"4@06QL(&9R97%U96YC>2!V86QU97,@87)E(&YO<FUA;&EZ960@=&\\@,2X       X    P    !@    @    $          4    ( "
+    "    0         !         !          #@   &     &    \"     0         !0    @    !    +0    $         $    \"T   !&<"
+    "&%S<R ](# N-#L@(\" @(\" @(\" @(\" @)2!087-S8F%N9\"!&<F5Q=65N8WD    .    8     8    (    !          %    \"     $  "
+    "  M     0         0    +0   $9S=&]P(#T@,\"XU.R @(\" @(\" @(\" @(\" E(%-T;W!B86YD($9R97%U96YC>0    X   !@    !@    "
+    "@    $          4    (     0   \"H    !         !     J    1'!A<W,@/2 P+C U-S4P,3$R-S<X-3L@(\"4@4&%S<V)A;F0@4FEP<&"
+    "QE        #@   &     &    \"     0         !0    @    !    +P    $         $    \"\\   !$<W1O<\" ](# N,# P,3L@(\" "
+    "@(\" @(\" @)2!3=&]P8F%N9\"!!='1E;G5A=&EO;@ .    8     8    (    !          %    \"     $    I     0         0    *"
+    "0   &1E;G,@(#T@,38[(\" @(\" @(\" @(\" @(\" E($1E;G-I='D@1F%C=&]R          X    P    !@    @    $          4    (  "
+    "   0         !         !          #@   '     &    \"     0         !0    @    !    .0    $         $    #D    E($-"
+    "A;&-U;&%T92!T:&4@;W)D97(@9G)O;2!T:&4@<&%R86UE=&5R<R!U<VEN9R!&25)034]21\"X         #@   '@    &    \"     0        "
+    " !0    @    !    00    $         $    $$   !;3BP@1F\\L($%O+\"!772 ](&9I<G!M;W)D*%M&<&%S<RP@1G-T;W!=+\"!;,2 P72P@6T"
+    "1P87-S+\"!$<W1O<%TI.P         .    ,     8    (    !          %    \"     $          0         0          X   !H  "
+    "  !@    @    $          4    (     0   #8    !         !     V    )2!#86QC=6QA=&4@=&AE(&-O969F:6-I96YT<R!U<VEN9R!T"
+    ":&4@1DE24$T@9G5N8W1I;VXN   .    6     8    (    !          %    \"     $    A     0         0    (0   &(@(#T@9FER<"
+    "&TH3BP@1F\\L($%O+\"!7+\"![9&5N<WTI.P         .    2     8    (    !          %    \"     $    4     0         0   "
+    " %    $AD(#T@9&9I;'0N9&9F:7(H8BD[      X    P    !@    @    $          4    (     0    (    !         !   @!O;@  #"
+    "@   #@    &    \"     8         !0    @    !     0    $         \"0    @          ,!20 X    X    !@    @    &     "
+    "     4    (     0    $    !          D    (        8  FH4 .    B     8    (    \"0         %    \"     $   !8     "
+    "0         \"    6      !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  <    !    !"
+    "P   &AA;F1L90  #@         "
   }
 }
